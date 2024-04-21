@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-900 text-white font-sans">
+
+    <div class="mt-4" >
+        <a href="/" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg mt-2 text-lg">Go back to home</a>
+
+    </div>
+
+    <div class="form max-w-xl mx-auto p-6 bg-black text-white rounded-md shadow-md">
+        <form action="/edit" method="post" class="space-y-4">
+            <div>
+                <label for="title" class="block text-sm font-medium">Edit Post</label>
+                <input name="pn" type="text" id="title" name="pn" placeholder="previous" value="<%= filename  %>" class="mt-1 p-2 w-full   bg-gray-800 border rounded-md text-white">
+            </div>
+            
+            <div>
+               
+                <input name="nn" type="text" id="title" name="nn" placeholder="new name" class="mt-1 p-2 w-full   bg-gray-800 border rounded-md text-white">
+            </div>
+            
+            <div>
+                <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600">Update</button>
+            </div>
+        </form>
+
+    </div>
+ 
+
+</body>
+
+</html>
