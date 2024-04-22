@@ -2,6 +2,7 @@ const express = require ('express')
 const path = require( 'path' )
 const app = express()
 const fs = require ('fs')
+const { unlink } = require('node:fs');
 
 
 app.set( 'view engine', 'ejs' ) 
@@ -16,8 +17,19 @@ app.get('/',function(req,res){
    fs.readdir(`./files`,function(err,files){
 
     res.render("index", {files: files},  )
+    console.log("running")
    })
 
+  
+})
+app.get('/delete/:filename',function(req,res){
+  
+fs.unlink( `./files/${req.params.filename}`, function(){
+    
+    res.redirect("/");
+    
+    
+});
   
 })
 app.get('/edit/:filename',function(req,res){

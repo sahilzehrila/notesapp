@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
        <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
@@ -32,9 +33,16 @@
             <% files.forEach(function(val){%>
                 <div class="task flex-shrink-0 bg-gray-800 rounded-lg shadow-md p-6">
                     <p class="text-xl min-w-full font-medium"><%= val %></p>
-                    <a href="/file/<%= val  %>" class="text-blue-400 hover:text-blue-300 mt-2 inline-block">read more</a>
-                    <a href="/edit/<%= val  %>" class="text-gray-400 hover:text-blue-300 mt-2 ml-8 inline-block">edit file name</a>
+                    <a href="/file/<%= val %>" class="text-blue-400 hover:text-blue-300 mt-2 inline-block">read more</a>
+                    <a href="/edit/<%= val %>" class="text-gray-400 hover:text-blue-300 mt-2 ml-8 inline-block">edit file name</a>
+                <div >
+                    <a href="/delete/<%= val %>" class="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-lg mt-4 inline-block" onclick= confirmDelete() >
+                       <h6  >Delete</h6>
+                    </a>
                 </div>
+                   
+                </div>
+                
             <%}) %>
 
           <% } else{ %>
@@ -64,4 +72,24 @@
 
     </div>
 </body>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script>
+   
+function confirmDelete() {
+        if (confirm("Are you sure you want to delete?")) {
+            // Show Toastify notification
+            Toastify({
+                text: "Deleted successfully",
+                backgroundColor: "linear-gradient(to right, #ff4b2b, #ff416c)",
+                className: "info",
+            }).showToast();
+            
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+</script>
 </html>
