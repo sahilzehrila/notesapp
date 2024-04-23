@@ -3,6 +3,7 @@ const path = require( 'path' )
 const app = express()
 const fs = require ('fs')
 const { unlink } = require('node:fs');
+const { log } = require('console');
 
 
 app.set( 'view engine', 'ejs' ) 
@@ -12,7 +13,6 @@ app.use(express.static(path.join(__dirname,"public")))
 
 
 
-//    <script src="https://cdn.tailwindcss.com"></script>
 app.get('/',function(req,res){
    fs.readdir(`./files`,function(err,files){
 
@@ -59,4 +59,6 @@ fs.writeFile(`./files/${req.body.title.split(' ').join('')}.txt`, req.body.descr
   
 })
 
-app.listen(3000)
+app.listen(3000,()=>{
+   console.log("server started ");
+})
